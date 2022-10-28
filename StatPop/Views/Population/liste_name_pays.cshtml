@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ApiPopStat.Models.Population>
+
+@{
+    ViewData["Title"] = "liste_name_pays";
+}
+
+
+<div class="col-md-12 mb-3">
+    <div class=" row container-fluid section1 text-center">
+
+    </div>
+</div>
+<div class=" contenair-fluid section1 text-center ">
+    <h1>Liste des pays</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Country_Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country_Name)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.id">Détails</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

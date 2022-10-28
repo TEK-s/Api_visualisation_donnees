@@ -1,0 +1,1 @@
+SELECT a_,a_2012,a_2013,a_2014,a_2015,a_2016 from Population where id=2

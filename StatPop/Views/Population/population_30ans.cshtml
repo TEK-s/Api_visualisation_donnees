@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "population sur 5 ans";
+}
+
+<div class=" contenair-fluid section1 text-center ">
+    <h1>Graphe variation croissance</h1>
+</div>
+<div class=" row container-fluid section1 text-center">
+    <div class="col-md-12 text-center mb-3">
+        <h2>caractéristique du graphe</h2>
+        <p>Variation de la croissance de la population suivant toutes les années </p>
+    </div>
+</div>
+<div class="row container-fluid section1 text-center">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8 mb-3">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <canvas id="myChart" width="500" height="500"></canvas>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var v = @Html.Raw(@ViewBag.liste_years);
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: @ViewBag.liste_anne ,
+            datasets: [{
+                label: 'Population croissance per year',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: @ViewBag.liste_years
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+</script>

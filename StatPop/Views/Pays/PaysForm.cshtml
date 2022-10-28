@@ -1,0 +1,52 @@
+﻿@model ApiPopStat.Models.Pays
+
+@{
+    ViewData["Title"] = "PaysForm";
+}
+
+<h1>PaysForm</h1>
+@using (Html.BeginForm("ProcessCreate", "Pays"))
+{
+    @Html.AntiForgeryToken()
+<h4>Pays</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PaysForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Country_Name" class="control-label"></label>
+                <input asp-for="Country_Name" class="form-control" />
+                <span asp-validation-for="Country_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country_Code" class="control-label"></label>
+                <input asp-for="Country_Code" class="form-control" />
+                <span asp-validation-for="Country_Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Region" class="control-label"></label>
+                <input asp-for="Region" class="form-control" />
+                <span asp-validation-for="Region" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Income_Group" class="control-label"></label>
+                <input asp-for="Income_Group" class="form-control" />
+                <span asp-validation-for="Income_Group" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+}

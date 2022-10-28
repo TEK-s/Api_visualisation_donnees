@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "index";
+}
+
+<div class=" contenair-fluid section1 text-center ">
+    <h1>Données du fichier</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Country Name
+            </th>
+            <th>
+                informations supplémentaires sur le pays
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.liste_name)
+        {
+        <tr>
+            
+            <td>
+                @item.Country_Name
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.id">Détails</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

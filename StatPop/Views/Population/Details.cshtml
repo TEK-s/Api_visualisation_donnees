@@ -1,0 +1,93 @@
+﻿@model ApiPopStat.Models.Population
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class=" contenair-fluid section1 text-center ">
+    <h1>@ViewBag.single_population.Country_Name</h1>
+</div>
+<div class=" contenair-fluid section1 text-center ">
+    <div class="row container-fluid section1 text-center">
+        <div class="col-md-2 col-12  container-fluid mb-4 ">
+            <a asp-action="Population_50ans" asp-controller="Population" asp-route-id="@ViewBag.single_population.id"><p class="my-4  text-uppercase shadow-sm text-center bg-white rounded "> <span class="badge badge-white">On 50 last years</span></p></a>
+
+        </div>
+        <div class="col-md-2 col-12  container-fluid mb-4 ">
+            <a asp-action="Population_40ans" asp-controller="Population" asp-route-id="@ViewBag.single_population.id"><p class="my-4  text-uppercase shadow-sm text-center bg-white rounded "> <span class="badge badge-white">On 40 last years</span></p></a>
+
+        </div>
+        <div class="col-md-2 col-12  container-fluid mb-4 ">
+            <a asp-action="Population_30ans" asp-controller="Population" asp-route-id="@ViewBag.single_population.id"><p class="my-4  text-uppercase shadow-sm text-center bg-white rounded "> <span class="badge badge-white">On 30 last years</span></p></a>
+
+        </div>
+        <div class="col-md-2 col-12  container-fluid mb-4 ">
+            <a asp-action="Population_20ans" asp-controller="Population" asp-route-id="@ViewBag.single_population.id"><p class="my-4  text-uppercase shadow-sm text-center bg-white rounded "> <span class="badge badge-white">On 20 last years</span></p></a>
+
+        </div>
+        <div class="col-md-2 col-12  container-fluid mb-4 ">
+            <a asp-action="Population_10ans" asp-controller="Population" asp-route-id="@ViewBag.single_population.id"><p class="my-4  text-uppercase shadow-sm text-center bg-white rounded "> <span class="badge badge-white">On 10 last years</span></p></a>
+
+        </div>
+        <div class="col-md-2 col-12  container-fluid mb-4 ">
+
+            <a asp-action="Population_5ans" asp-controller="Population" asp-route-id="@ViewBag.single_population.id"><p class="my-4  text-uppercase shadow-sm text-center bg-white rounded "> <span class="badge badge-white">On 5 last years</span></p></a>
+
+        </div>
+        <div class="col-md-2 col-12  container-fluid mb-4 ">
+
+            <a asp-action="graphe" asp-controller="Population" asp-route-id="@ViewBag.single_population.id"><p class="my-4  text-uppercase shadow-sm text-center bg-white rounded "> <span class="badge badge-white">All years</span></p></a>
+
+        </div>
+    </div>
+
+</div>
+<div class="row container-fluid section1 text-center">
+
+    <div class="col-md-6 col-12  container-fluid mb-4 " >
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Année
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var i = 1961; i < 2020; i++)
+                {
+                    <tr>
+                        <td>
+                            @i
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-6 col-12  container-fluid mb-4 ">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Croissance
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var year in @ViewBag.single_population.Years)
+                {
+                    <tr>
+                        <td>
+                            @year
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
